@@ -1,0 +1,21 @@
+name: PETIT_WACV
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.10
+  - seaborn
+  - numpy
+  - pandas
+  - tqdm
+  - hydra-core
+  - scipy
+  - ipykernel
+  - pillow
+  - p-tqdm
+  - omegaconf
+  - pytorch
+  - pytorch-cuda=12.1
+  - torchvision
+  - google-cloud-storage
