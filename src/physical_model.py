@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 import torch
 from p_tqdm import t_map
-from pre_processing import load_measurements
+from src.tau2.PETIT.src.pre_processing import load_measurements
 
 
 def c2k(celsius):

@@ -3,19 +3,20 @@ import time
 from itertools import chain
 from pathlib import Path
 
-import networks
+from src.tau2.PETIT.src import networks
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import torch
 import torchvision
-from base_model import BaseModel
+
+from src.tau2.PETIT.src.base_model import BaseModel
 from matplotlib import pyplot as plt
-from patchnce import PatchNCELoss
+from src.tau2.PETIT.src.patchnce import PatchNCELoss
 from torchvision import transforms
-from utils.arrays import tens2arr
-from utils.deep import NetPhase
-from utils.visualizations import add_text_to_image, full_dynamic_range
+from src.tau2.PETIT.src.utils.arrays import tens2arr
+from src.tau2.PETIT.src.utils.deep import NetPhase
+from src.tau2.PETIT.src.utils.visualizations import add_text_to_image, full_dynamic_range
 
 
 class CUTModel(BaseModel):

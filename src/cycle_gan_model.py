@@ -2,18 +2,19 @@ import itertools
 from collections import namedtuple
 from pathlib import Path
 
-import networks
 import pandas as pd
 import seaborn as sns
 import torch
 import torchvision
-from base_model import BaseModel
-from matplotlib import pyplot as plt
 from torch import nn
 from torchvision import transforms
-from utils.arrays import tens2arr
-from utils.deep import NetPhase
-from utils.visualizations import add_text_to_image, full_dynamic_range
+from matplotlib import pyplot as plt
+
+from src.tau2.PETIT.src import networks
+from src.tau2.PETIT.src.base_model import BaseModel
+from src.tau2.PETIT.src.utils.arrays import tens2arr
+from src.tau2.PETIT.src.utils.deep import NetPhase
+from src.tau2.PETIT.src.utils.visualizations import add_text_to_image, full_dynamic_range
 
 DiscOut = namedtuple("DiscOut", ["D_real", "D_fake"])
 DomainState = namedtuple("DomainState", ["real", "fake", "cycle", "identity"])

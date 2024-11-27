@@ -3,12 +3,12 @@ import os
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-import networks
+from src.tau2.PETIT.src import networks
 import torch
-from configs import LwirChannel
-from normalizer import Normalizer
-from physical_model import PanToMono as PhysicalModel
-from utils.deep import NetPhase
+from src.tau2.PETIT.src.configs import LwirChannel
+from src.tau2.PETIT.src.normalizer import Normalizer
+from src.tau2.PETIT.src.physical_model import PanToMono as PhysicalModel
+from src.tau2.PETIT.src.utils.deep import NetPhase
 
 
 class BaseModel(ABC):

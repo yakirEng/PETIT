@@ -3,7 +3,7 @@ from collections import Counter
 from pathlib import Path
 
 import numpy as np
-from configs import TAU2_RAD_RES, DataNorm, LwirChannel
+from src.tau2.PETIT.src.configs import TAU2_RAD_RES, DataNorm, LwirChannel
 from tqdm import tqdm
 
 
