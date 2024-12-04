@@ -5,19 +5,13 @@ import torch
 from datetime import datetime
 from PIL import Image
 
-from src.utils.configuration.tau2dsconfig import LwirChannel
+from src.utils.configuration.petitmonoconfig import LwirChannel
 from src.tau2.PETIT.src.cycle_gan_model import CycleGANModel
 from src.tau2.PETIT.src.cut_model import CUTModel
 from src.tau2.PETIT.src.utils.deep import NetPhase
 from src.tau2.PETIT.src.dataset import MonoDS
 
-def load_petit_model(test_config, wl):
-    if wl == "9000nm":
-        test_config.wl = LwirChannel.nm9000
-    elif wl == "11000nm":
-        test_config.wl = LwirChannel.nm11000
-    else:
-        raise ValueError("Invalid wavelength")
+def load_petit_model(test_config):
     backbone = CUTModel if test_config.model == "CUT" else CycleGANModel
     model = backbone(test_config)
     model.set_phase(NetPhase.test)
