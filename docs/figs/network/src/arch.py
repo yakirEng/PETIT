@@ -47,7 +47,7 @@ def get_arch(type="petit"):
     else:
         encoder = [
             to_rect(4, 2, center="concat_pan-east", xshift=10, caption="\\textbf{Encoder}", label="", name="encoder"),
-            to_connection("concat_pan", "encoder", dst_style=".")
+            to_connection("concat_pan", "encoder", dst_style="")
         ]
 
     # bottleneck:
@@ -59,7 +59,7 @@ def get_arch(type="petit"):
     else:
         bottleneck = [
             to_rect(4, 2, center="encoder.east", xshift=10, label="", caption="\\textbf{Bottleneck}", name="bottleneck"),
-            to_connection("encoder", "bottleneck", src_style=".", dst_style=".")
+            to_connection("encoder", "bottleneck", src_style="", dst_style="")
         ]
 
     # mono int:
@@ -68,7 +68,7 @@ def get_arch(type="petit"):
     else:
         mono_int_blocks = [
             to_Concat(name="concat_mono", offset="(3,0,0)", to="({}.east)".format("bottleneck"), radius=2.5, opacity=0.6),
-            to_connection("bottleneck", "concat_mono", src_style="."),
+            to_connection("bottleneck", "concat_mono", src_style=""),
             to_int(name="t_mono", offset=f"(0,{t_int_off},0)", to="({}-south)".format("concat_mono"), radius=2.5, opacity=0.6, caption="Mono"),
             to_connection("t_mono", "concat_mono", src_side="north", dst_side="south")
         ]
@@ -84,7 +84,7 @@ def get_arch(type="petit"):
     else:
         decoder = [
             to_rect(4, 2, center="concat_mono-east", xshift=19, caption="\\textbf{Decoder}", label="", name="decoder"),
-            to_connection("concat_mono", "decoder", dst_style=".")
+            to_connection("concat_mono", "decoder", dst_style="")
         ]
 
     if type == "cut":
@@ -96,15 +96,15 @@ def get_arch(type="petit"):
             to_rect(6, 4, center="t_pan-south", yshift=phys_model_off, caption=pan2T, label=r"$\mathit{Pan} \rightarrow \hat{T}_\mathit{obj}$", name="pan2temp", style="solid"),
             """\path (input-east) -- (concat_pan-west) coordinate[pos=0.25] (between_in_concat);
             \draw [connection]  (between_in_concat)   --  node {\midarrow} (pan2temp.west-|between_in_concat) --  node {\midarrow} (pan2temp.west);""",
-            to_connection("t_pan", "pan2temp", dst_style=".", src_side="south", dst_side="north"),
+            to_connection("t_pan", "pan2temp", dst_style="", src_side="south", dst_side="north"),
             to_rect(6, 4, center="t_mono-south", yshift=phys_model_off, caption=T2Mono, label=r"$\hat{T}_\mathit{obj} \rightarrow Mono$", name="temp2mono", style="solid"),
-            to_connection("pan2temp", "temp2mono", src_style=".", dst_style=".", label="$\pmb{\hat{T}_\mathit{obj}}$"),
-            to_connection("t_mono", "temp2mono", dst_style=".", src_side="south", dst_side="north"),
+            to_connection("pan2temp", "temp2mono", src_style="", dst_style="", label="$\pmb{\hat{T}_\mathit{obj}}$"),
+            to_connection("t_mono", "temp2mono", dst_style="", src_side="south", dst_side="north"),
             to_Conv("affine", s_filer=256, n_filer=2, offset="(4,0,0)", to="(temp2mono.east)", width=1, height=base_spat, depth=base_spat),
-            to_connection("temp2mono", "affine", src_style=".", label="$\pmb{\hat{I}_\mathit{mono}}$"),
+            to_connection("temp2mono", "affine", src_style="", label="$\pmb{\hat{I}_\mathit{mono}}$"),
             to_Sum(name="pm_sum", offset="(0,0,0)", to="(decoder.east-|affine-north)", radius=2.5, opacity=0.6),
             to_connection("affine", "pm_sum", src_side="north", dst_side="south"),
-            to_connection("decoder", "pm_sum", src_style="."),
+            to_connection("decoder", "pm_sum", src_style=""),
             to_rect(32, 10, center="temp2mono.center", xshift=-8.5, yshift=-0.75, label=r"$\pmb{\tilde{G}_{\mathit{phys}}}$", fontsz="\Huge", name="phys_model")
         ]
 

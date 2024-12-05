@@ -3,10 +3,10 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from src.tau2.PETIT.src.configs import LwirChannel
+from src.dataset_code.mono.PETIT.src.configs import LwirChannel
 from torch.utils.data import Dataset
 from torchvision.transforms import CenterCrop, Compose, ToTensor
-from src.tau2.PETIT.src.utils.deep import NetPhase
+from src.dataset_code.mono.PETIT.src.utils.deep import NetPhase
 
 
 def getDataLoader(

@@ -7,7 +7,7 @@ from pathlib import Path
 
 import numpy as np
 from hydra.core.config_store import ConfigStore
-from src.tau2.PETIT.src.utils.deep import NetPhase
+from src.dataset_code.mono.PETIT.src.utils.deep import NetPhase
 
 rgb2grey = np.array([0.2989, 0.587, 0.1141])
 TAU2_RAD_RES = 2**14  # TAU2's radiometric resolution

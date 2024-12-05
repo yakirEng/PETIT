@@ -10,11 +10,11 @@ from torch import nn
 from torchvision import transforms
 from matplotlib import pyplot as plt
 
-from src.tau2.PETIT.src import networks
-from src.tau2.PETIT.src.base_model import BaseModel
-from src.tau2.PETIT.src.utils.arrays import tens2arr
-from src.tau2.PETIT.src.utils.deep import NetPhase
-from src.tau2.PETIT.src.utils.visualizations import add_text_to_image, full_dynamic_range
+from src.dataset_code.mono.PETIT.src import networks
+from src.dataset_code.mono.PETIT.src.base_model import BaseModel
+from src.dataset_code.mono.PETIT.src.utils.arrays import tens2arr
+from src.dataset_code.mono.PETIT.src.utils.deep import NetPhase
+from src.dataset_code.mono.PETIT.src.utils.visualizations import add_text_to_image, full_dynamic_range
 
 DiscOut = namedtuple("DiscOut", ["D_real", "D_fake"])
 DomainState = namedtuple("DomainState", ["real", "fake", "cycle", "identity"])

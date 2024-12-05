@@ -3,12 +3,12 @@ import os
 from abc import ABC, abstractmethod
 from pathlib import Path
 
-from src.tau2.PETIT.src import networks
+from src.dataset_code.mono.PETIT.src import networks
 import torch
-from src.tau2.PETIT.src.configs import LwirChannel
-from src.tau2.PETIT.src.normalizer import Normalizer
-from src.tau2.PETIT.src.physical_model import PanToMono as PhysicalModel
-from src.tau2.PETIT.src.utils.deep import NetPhase
+from src.dataset_code.mono.PETIT.src.configs import LwirChannel
+from src.dataset_code.mono.PETIT.src.normalizer import Normalizer
+from src.dataset_code.mono.PETIT.src.physical_model import PanToMono as PhysicalModel
+from src.dataset_code.mono.PETIT.src.utils.deep import NetPhase
 
 
 class BaseModel(ABC):

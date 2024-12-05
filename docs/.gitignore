@@ -8,7 +8,7 @@
 !figs/**/*.pdf
 .vscode/
 venv
-!thesis/abstract_hebrew*
+!thesis/abstract_hebrew.pdf
 !thesis/heb_title_page.pdf
 rawData/
 *.blg

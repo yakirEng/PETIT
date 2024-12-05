@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torch.nn import init
 from torch.optim import lr_scheduler
 
-from src.tau2.PETIT.src.stylegan_networks import StyleGAN2Discriminator, StyleGAN2Generator
+from src.dataset_code.mono.PETIT.src.stylegan_networks import StyleGAN2Discriminator, StyleGAN2Generator
 
 
 ###############################################################################

@@ -126,7 +126,7 @@ def my_block_Res(num, botton, s_filer=256, n_filer=64, size=(32, 32, 3.5)):
     first_connect = to_connection(botton, "res_blocks_0")
 
     mid = to_rect(3, 4, "res_blocks_0-east", xshift=9, label="$\\times 6$", caption="$\pmb{\cdots}$", name="hdots", is_boder=False)
-    first_mid_connect = to_connection("res_blocks_0", "hdots", dst_style=".")
+    first_mid_connect = to_connection("res_blocks_0", "hdots", dst_style="")
 
     last = to_Conv(
         f"res_blocks_{num-1}",
@@ -138,7 +138,7 @@ def my_block_Res(num, botton, s_filer=256, n_filer=64, size=(32, 32, 3.5)):
         height=size[0],
         depth=size[1]
     )
-    mid_last_connect = to_connection("hdots", "res_blocks_5", src_style=".")
+    mid_last_connect = to_connection("hdots", "res_blocks_5", src_style="")
 
     return [first, first_connect, mid, first_mid_connect, last, mid_last_connect]
     # return [first, last]

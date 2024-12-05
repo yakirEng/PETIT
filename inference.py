@@ -2,14 +2,12 @@ import numpy as np
 from tqdm import tqdm
 import torch
 
-from datetime import datetime
 from PIL import Image
 
-from src.utils.configuration.petitmonoconfig import LwirChannel
-from src.tau2.PETIT.src.cycle_gan_model import CycleGANModel
-from src.tau2.PETIT.src.cut_model import CUTModel
-from src.tau2.PETIT.src.utils.deep import NetPhase
-from src.tau2.PETIT.src.dataset import MonoDS
+from src.dataset_code.mono.PETIT.src.cycle_gan_model import CycleGANModel
+from src.dataset_code.mono.PETIT.src.cut_model import CUTModel
+from src.dataset_code.mono.PETIT.src.utils.deep import NetPhase
+
 
 def load_petit_model(test_config):
     backbone = CUTModel if test_config.model == "CUT" else CycleGANModel
