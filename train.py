@@ -125,3 +125,7 @@ def main():
             print(f'Best FID score: {best_fid_score}')
 
     model.save_networks("last", path_to_save / "checkpoints")
+
+
+if __name__ == '__main__':
+    main()

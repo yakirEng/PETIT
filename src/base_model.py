@@ -76,7 +76,15 @@ class BaseModel(ABC):
         if self.config.thermal.is_physical_model:
             # init physical model:
             self.physical_model = PhysicalModel(dtype=torch.Tensor)
-            self.physical_model.load(path_to_models / "coefficients.npz")
+            if self.config.wl.__str__() == "9000nm":
+                coeff_filename = 'coefficients_9um.npz'
+            elif self.config.wl.__str__() == "11000nm":
+                coeff_filename = 'coefficients_11um.npz'
+            else:
+                raise ValueError(
+                    f"Unsupported wavelength {self.config.wl}. Supported wavelengths are: 9000nm and 11000nm."
+                )
+            self.physical_model.load(path_to_models / coeff_filename)
             self.physical_model.to(self.device)
 
             # init affine correction network:
